@@ -6,7 +6,12 @@
   </div>
 </template>
 <script>
+import PageHeader from '@/components/PageHeader.vue';
+
 	export default {
+    conponents:{
+      PageHeader,
+    },
 	}
 </script>
 <style lang="scss">

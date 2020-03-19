@@ -10,9 +10,9 @@
 					<el-form-item label="确认密码" prop="checkpassword">
 						<el-input type="passwordword" v-model="formData.checkpassword" autocomplete="off"></el-input>
 					</el-form-item>
-				<el-form-item label="年龄" prop="age">
-				<el-input v-model.number="formData.age"></el-input>
-				</el-form-item>
+				<!-- <el-form-item label="年龄" prop="age">
+						<el-input v-model.number="formData.age"></el-input>
+				</el-form-item> -->
 				<el-form-item>
 					<el-button type="primary" @click="doLogin('formData')">登录</el-button>
 					<el-button @click = "jupmRegister()">注册

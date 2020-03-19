@@ -1,7 +1,4 @@
 <template>
-    <!-- <div class = "headerBar">
-        <el-header >夸克H5</el-header>
-    </div> -->
   <div class="components-page-header">
       <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
         <img src="../static/images/logo.png" alt="">
@@ -9,16 +6,22 @@
       </div>
       <slot></slot>
       <div class="pull-right">
-        <!-- <userHeaderBar class="marginL30"/> -->
+        <UserHeaderBar class="marginL30"/>
       </div>
   </div>
 </template>
 <script>
+import UserHeaderBar from './UserHeaderBar';
+
 export default {
     name: 'pageHeader',
-    // components:
+    components:{
+      UserHeaderBar,
+    },
     data(){
-     
+      return {
+
+      }
     },
     methods:{
 

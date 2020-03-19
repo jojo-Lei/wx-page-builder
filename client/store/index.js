@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 // 各个模块
+import user from './modules/user'
 
 
 import { Message } from 'element-ui'
@@ -35,4 +36,8 @@ export default new Vuex.Store({
 	getters,
 	actions,
 	mutations,
+	modules:{
+		user,
+		 
+	}
 });
