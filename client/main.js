@@ -8,7 +8,7 @@ import httpServer from '@client/service/httpServer' // axios拦截器配置
 import config from '@/config'
 // import filters from './filters/index'
 // import AES from '@/common/js/secret'
-// import userModel from '@client/mixins/userModel'
+import userModel from '@client/mixins/userModel'
 
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
@@ -37,7 +37,8 @@ Vue.prototype.$config = config
 // Object.keys(filters).forEach(key => {
 // 	Vue.filter(key, filters[key])
 // })
-
+// 全局注册mixins
+Vue.mixin(userModel); // 公共mixins
 
 // // 登录后跳转方法
 // Vue.prototype.goBeforeLoginUrl = () => {

@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 
 // 各个模块
 import user from './modules/user'
-
+import editor from './modules/editor'
 
 import { Message } from 'element-ui'
 /**
@@ -38,6 +38,6 @@ export default new Vuex.Store({
 	mutations,
 	modules:{
 		user,
-		 
+		editor,
 	}
 });

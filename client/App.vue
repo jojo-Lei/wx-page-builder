@@ -1,15 +1,16 @@
 <template>
   <div id="app" :class="{hideHeader: $route.meta.hideHeader}">
     <div class="page-header-wrapper" v-show="!$route.meta.hideHeader">
+      <PageHeader></PageHeader>
     </div>
     <router-view class="sub-page"/>
   </div>
 </template>
 <script>
-import PageHeader from '@/components/PageHeader.vue';
-
+import PageHeader from './components/PageHeader';
+console.log(PageHeader);
 	export default {
-    conponents:{
+    components:{
       PageHeader,
     },
 	}

@@ -1,7 +1,7 @@
 <template>
   <div class="components-page-header">
       <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
-        <img src="../static/images/logo.png" alt="">
+        <img src="../assets/images/logo.png" alt="">
         <span>夸克H5</span>
       </div>
       <slot></slot>
@@ -12,7 +12,7 @@
 </template>
 <script>
 import UserHeaderBar from './UserHeaderBar';
-
+console.log(UserHeaderBar);
 export default {
     name: 'pageHeader',
     components:{
@@ -30,7 +30,7 @@ export default {
       
 }
 </script>
-<style>
+<style lang="scss" scoped>
   .components-page-header {
     height: 48px;
     line-height: 48px;
@@ -40,21 +40,20 @@ export default {
     box-shadow: 0px 1px 4px 0px rgba(195, 195, 195, 0.6);
   }
 
-
   .logo-wrapper {
     font-size: 18px;
     font-family: Yuanti SC;
     color: rgba(0, 0, 0, 1);
     line-height: 44px;
     display: inline-block;
-    /* img {
+    img {
       position: relative;
       top: 6px;
       width: 26px;
       height: 28px;
       display: inline-block;
       margin-right: 8px;
-    } */
+    }
   }
 
   .el-dropdown-link{

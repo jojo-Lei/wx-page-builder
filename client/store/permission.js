@@ -4,9 +4,9 @@
 import NProgress from 'nprogress' // 进度条
 import router from '../router'
 import 'nprogress/nprogress.css' // 进度条样式
-import store from '../store'
+import store from '.'
 import { ColorPicker } from 'element-ui';
-import * as mUtils from '../static/js/mUtils'
+import * as mUtils from '../assets/js/mUtils'
 
 
 router.beforeEach((to, from, next) => {

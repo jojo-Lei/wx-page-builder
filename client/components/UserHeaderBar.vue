@@ -1,21 +1,31 @@
 <template>
-    <el-dropdown>
-        <span class="el-dropdown-link">设置
-            <i class="el-icon-arrow-down el-icon--right"></i>
+    <el-dropdown class="components-user-header cursor-pointer">
+        <span class="el-dropdown-link">
+        <span class="user-header-image iconfont">
+            <img src="../assets/images/head.png" alt="" v-if="userData.avatar" />
+            <img :src="userData.avatar" alt="" v-else />
+        </span>
+        {{userData.name}}
+        <i class="el-icon-arrow-down el-icon--right"></i>
         </span>
         <el-dropdown-menu slot="dropdown">
             <el-dropdown-item>
-                <div @click = "logout">
-                    <span><i class = "iconfont icon-tuichuyingyong"></i>退出登录</span>
+                <div @click="_logout">
+                <span><i class="iconfont icon-tuichuyingyong"></i>&nbsp;退出登录</span>
                 </div>
             </el-dropdown-item>
         </el-dropdown-menu>
     </el-dropdown>
 </template>
 <script>
-export default {
-    computed:{
+import { mapState } from "vuex";
 
+export default {
+    name:'user-header-bar',
+    computed:{
+        ...mapState({
+            userData: state => state.user.userData
+        })
     }
 }
 </script>

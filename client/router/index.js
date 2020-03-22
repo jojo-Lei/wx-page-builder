@@ -10,7 +10,7 @@ export default new Router({
 			path: '/',
 			name: 'Home',
 			component: () => import('@/pages/home/index'),
-			// redirect: {name: 'pageList'},
+			redirect: {name: 'pageList'},
 			children: [{
 				path: 'page-list',
 				name: 'pageList',
@@ -28,11 +28,20 @@ export default new Router({
 				name: 'templateList',
 				component: () => import('@/pages/home/template-list')
 			}]
+		},{
+			path: '/editor',
+			name: 'Editor',
+			component: () => import ('@/pages/editor/index')
 		},
 		{
 			path: '/login',
 			name: 'Login',
 			component: () => import('@/pages/Login'),
+			meta: {
+				hideHeader: true,
+				trust: true,
+				noNeedLogin: true
+			}
 		},
 		{
 			path: '/register',

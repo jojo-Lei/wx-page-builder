@@ -113,7 +113,7 @@
 </template>
 
 <script>
-	// import editorProjectConfig from '../editor/DataModel'
+	import editorProjectConfig from '../editor/DataModel'
 	import previewPage from './components/preview'
 
 
