@@ -38,7 +38,7 @@
                 <attrEdit></attrEdit>
               </el-tab-pane>
               <el-tab-pane label="事件" name="事件">
-                
+                <eventEdit></eventEdit>
               </el-tab-pane>
               <el-tab-pane label="动画" name="动画">
                 
@@ -63,7 +63,7 @@ import editorPan from './components/editor-panel/EditorPan'
 // // 属性编辑相关组件
 import attrEdit from './components/attr-configure/AttrEdit'
 // animationEdit
-// eventEdit
+import eventEdit from './components/attr-configure/EventEdit'
 // pageAttrEdit
 // scriptEdit
 
@@ -84,7 +84,7 @@ export default {
 		  editorPan,
 		  attrEdit,
 		  // animationEdit,
-		  // eventEdit,
+		  eventEdit,
 		  // pageAttrEdit,
 		  // scriptEdit,
 		  controlBar,

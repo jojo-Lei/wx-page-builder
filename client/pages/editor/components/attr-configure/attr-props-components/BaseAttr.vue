@@ -8,7 +8,7 @@
                     <div class="sizeAndPosition-wrapper">
                         <div class="align-type-item" v-for="item in alignTypeList" 
                             :key="item.type" @click="changeAlignType(item)">
-                            <el-tooltip effect="balck" :content="item.title" placement="bottom">
+                            <el-tooltip effect="dark" :content="item.title" placement="bottom">
                                 <i :class="[item.icon]" ></i>
                             </el-tooltip>
                         </div>
