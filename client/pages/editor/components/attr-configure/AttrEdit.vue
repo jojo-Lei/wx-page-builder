@@ -21,6 +21,7 @@ import propsAttr from './attr-props-components/props-attr/index.vue'
 export default {
     components:{
         baseAttr,
+        propsAttr
     },
     computed:{
         ...mapState({

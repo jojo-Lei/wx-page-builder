@@ -1,6 +1,6 @@
 <template>
     <div class="components-attr-edit components-attr-animate-edit">
-        <el-scrollerbar class="components-attr-edit">
+        <el-scrollbar class="components-attr-edit">
           <div class="attr-edit-inner" v-if="activeElementUUID">
             <div class="aniamte-edit-btn-wrapper">
               <el-button type="primary" icon="el-icon-plus" size="small" @click="addAnimate">添加动画</el-button>
@@ -58,7 +58,7 @@
 					<div v-else>
         		<p class="gray paddingT30 text-center">请在画板上选择需要编辑得元素</p>
       		</div>
-        </el-scrollerbar>
+        </el-scrollbar>
 				<div class="components-attr-edit animate-choose-list-wrapper"
          :class="{fadeInUp: showAnimatePanel, fadeInDown: !showAnimatePanel, animate: showAnimatePanel}">
 					<el-tabs v-model="activeName">
@@ -159,7 +159,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .components-attr-edit {
     height: 100%;
   }

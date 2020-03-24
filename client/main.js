@@ -13,8 +13,8 @@ import userModel from '@client/mixins/userModel'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 
-// import '@/common/styles/element-variables.scss'
-// import '@/common/styles/index.scss' // 自定义 css
+import '@/assets/styles/element-variables.scss'
+import '@/assets/styles/index.scss' // 自定义 css
 import 'animate.css'
 import VueClipboard from 'vue-clipboard2'
 

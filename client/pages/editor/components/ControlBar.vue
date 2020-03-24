@@ -4,7 +4,7 @@
             <span class="scale-btn" @click="updataScale('reduce')">
                 <i class="el-icon-zoom-out"></i>
             </span>
-            <span class="scale-input" >{{praseFloat(scaleValue *100).toFixed(0)}}%</span>
+            <span class="scale-input" >{{parseFloat(scaleValue *100).toFixed(0)}}%</span>
             <span class="scale-btn" @click="updataScale('plus')">
                 <i class="el-icon-zoom-in"></i>
             </span>
@@ -126,7 +126,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .components-contrl-bar {
+  .components-control-bar {
     display: inline-block;
     z-index: 3;
     padding: 2px 12px;
@@ -140,7 +140,7 @@ export default {
       font-size: 14px;
       transition: color 0.28s, transform 0.28s;
       user-select: none;
-      &.scale-wrappper {
+      &.scale-wrapper {
         width: 110px;
         margin-right: 10px;
         &:hover {
@@ -153,19 +153,19 @@ export default {
           padding: 6px 2px;
           font-size: 20px;
           transition: all 0.28s;
-        //   &:hover {
-        //     color: $primary;
-        //   }
+          &:hover {
+            color: $primary;
+          }
         }
       }
       &:hover {
-        // color: $primary;
+        color: $primary;
         transform: scale(1.02);
         font-weight: bold;
       }
       &.disabled {
         cursor: not-allowed;
-        // color: $gray !important;
+        color: $gray !important;
       }
       & > i {
         font-size: 18px;

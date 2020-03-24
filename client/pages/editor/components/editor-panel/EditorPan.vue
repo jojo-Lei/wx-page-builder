@@ -2,24 +2,24 @@
     <div class="editor-pane"  @click="handleClickCanvas" @keyup.esc="handleKeyup">
         <div class="editor-pane-inner">
             <div class="editor-main" :style="{transform: 'scale(' + scale +')', width: projectData.width + 'px', height: projectData.height + 'px'}">
-                <div class="page-proview-wrapper" ref="canvas-panel" id="canvas-panel" :style="getComponentStyle(activePage.commStyle)">
+                <div class="page-proview-wrapper" ref="canvas-panel" id="canvas-panel" :style="getCommonStyle(activePage.commStyle)">
                      <!--页面组件列表展示-->
-                    <editShape 
-                        v-if="item in activePage.elements"
-                        :key="item.uuid"
-                        :uuid="item.uuid"
-                        :defaultStyle="item.commonStyle"
-                        :style="getCommonStyle(item.commonStyle)"
-                        @handleElementClick="handleElementClick(item.uuid)"
-                        @resize="handleElementResize"
-                        :active="item.uuid === activeElementUUID">
+                    <edit-shape
+                            v-for="item in activePage.elements"
+                            :key="item.uuid"
+                            :uuid="item.uuid"
+                            :defaultStyle="item.commonStyle"
+                            :style="getCommonStyle(item.commonStyle)"
+                            @handleElementClick="handleElementClick(item.uuid)"
+                            @resize="handleElementResize"
+                            :active="item.uuid === activeElementUUID">
                         <component :is="item.elName" class="element-on-edit-pane" v-bind="{...item.propsValue, value: item.value}"/>
-                     </editShape>
+                    </edit-shape>
                 </div>
 
-                <div class="page-wrapper-menu-opertion menu-item-on-edit-panel " :style="{transform: 'scale('+(1/scale)+')'}" :class="{active: activeElementUUID}">
+                <div class="page-wrapper-menu-operation menu-item-on-edit-panel " :style="{transform: 'scale('+(1/scale)+')'}" :class="{active: activeElementUUID}">
                     <el-tooltip v-for="(item, index) in menuOptions" :key="index" 
-                                effect="black" :content="item.titel" :placement="right">
+                                effect="dark" :content="item.titel" placement="right">
                         <div class="menu-item menu-item-on-edit-panel" @click="handleElementCommand(item.value)">
                             <i class="menu-item-on-edit-panel" :class="[item.icon]"></i>
                         </div>
@@ -32,12 +32,15 @@
 </template>
 
 <script>
+import {_qk_register_components_object} from '@client/plugins/index'
 import editShape from '@client/components/EditShape';
 console.log(editShape);
 import editorProjectConfig from '@client/pages/editor/DataModel';
 
 import {mapState, mapGetters} from 'vuex'
 import html2canvas from 'html2canvas';
+// todo 测试用
+window._qk_register_components_object = _qk_register_components_object
 export default {
     props: {
 		// canvas画板缩放
@@ -48,7 +51,7 @@ export default {
     },
     components: {
 		// 批量注册qk组件
-		// ..._qk_register_components_object,
+		..._qk_register_components_object,
 		// 画板组件
 		editShape,
 	},

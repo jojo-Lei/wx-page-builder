@@ -2,7 +2,7 @@
 <!-- 切换图片，提供图片选择，图片上传等功能 -->
     <div class="image-select-wrapper">
         <div class="image-select-l">
-            <div class="components-image-select" @click="handleClick">
+            <div class="component-image-select" @click="handleClick">
                 <img :src="url" alt="" v-if="url">
                 <div class="image-preview-null" v-else>
                     <p><i class="el-icon-plus"></i></p>

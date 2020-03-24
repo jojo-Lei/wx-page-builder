@@ -1,5 +1,5 @@
 <template>
-    <div class = "page-editor eidtor-wrapper" v-loading = "loading">
+    <div class = "page-editor editor-wrapper" v-loading = "loading">
         <!-- 左侧导栏 -->
        <div class="editor-side-bar border-R">
           <el-tabs tab-position="left" v-model="activeSideBar" style="height: 100%;">
@@ -13,7 +13,7 @@
           </el-tabs>
         </div>
         <!--组件&页面&模板-->
-        <div class="editor-page-editor-wrapper">
+        <div class="editor-page-edit-wrapper">
             <componentLibs v-if="activeSideBar === 'componentLibs'"/>
             <pageManage v-if="activeSideBar === 'pageManage'"/>
             <templateLibs v-if="activeSideBar === 'templateLibs'"/>
@@ -41,13 +41,13 @@
                 <eventEdit></eventEdit>
               </el-tab-pane>
               <el-tab-pane label="动画" name="动画">
-                
+                <animationEdit></animationEdit>
               </el-tab-pane>
               <el-tab-pane label="JS脚本" name="脚本">
-                
+                <scriptEdit></scriptEdit>
               </el-tab-pane>
               <el-tab-pane label="页面设置" name="页面属性">
-                
+                <pageAttrEdit></pageAttrEdit>
               </el-tab-pane>
             </el-tabs>
         </div>
@@ -62,10 +62,10 @@ import templateLibs from './components/TemplateLibs'
 import editorPan from './components/editor-panel/EditorPan'
 // // 属性编辑相关组件
 import attrEdit from './components/attr-configure/AttrEdit'
-// animationEdit
+import animationEdit from './components/attr-configure/AnimationEdit'
 import eventEdit from './components/attr-configure/EventEdit'
-// pageAttrEdit
-// scriptEdit
+import pageAttrEdit from './components/attr-configure/PageAttrEdit'
+import scriptEdit from './components/attr-configure/ScriptEdit'
 
 import controlBar from './components/ControlBar'
 
@@ -83,10 +83,10 @@ export default {
 		  // imageLibs,
 		  editorPan,
 		  attrEdit,
-		  // animationEdit,
+		  animationEdit,
 		  eventEdit,
-		  // pageAttrEdit,
-		  // scriptEdit,
+		  pageAttrEdit,
+		  scriptEdit,
 		  controlBar,
 	  	// previewPage
     },
@@ -94,6 +94,8 @@ export default {
         return {
             id: '', // 当前页面id 
             loading: false,
+            showPreview: false,
+				    activeAttr: '属性',
             activeSideBar: 'componentLibs',
             sidebarMenus:[
                {
@@ -128,7 +130,7 @@ export default {
       ])
     },
     created() {
-			this.$store.dispatch('setPrjectData')
+			this.$store.dispatch('setProjectData')
 			this.id = this.$route.query.id;
 			this.initPageData();
     },
@@ -140,7 +142,7 @@ export default {
 				this.loading = true;
 				this.$axios.get('/page/detail/' + this.id).then(res => {
 					this.loading = false;
-					this.$store.dispatch('setPrjectData', {
+					this.$store.dispatch('setProjectData', {
 						...res.body
 					})
 				}).catch(() => {
@@ -281,7 +283,6 @@ export default {
       background: rgba(37, 165, 137, 0.09);
     }
   }
-
   .el-attr-edit-wrapper {
     .el-tabs {
       height: 100%;

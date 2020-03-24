@@ -5,7 +5,7 @@
                 <div class="animate-edit-btn-wrapper">
                     <el-dropdown>
                         <el-button type="primary" size="small">
-                            添加事件<i class="el-icon-arrow-down el-icon-right"></i>
+                            添加事件<i class="el-icon-arrow-down el-icon--right"></i>
                         </el-button>
                         <el-dropdown-menu slot="dropdown">
                             <el-dropdown-item v-for="(item, index) in eventTypeList" :key="index" >

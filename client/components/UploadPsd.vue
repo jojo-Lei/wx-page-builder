@@ -2,7 +2,7 @@
     <div class="upload-psd-btn-wrapper">
         <el-upload
             action="https://jsonplaceholder.typicode.com/posts/"
-            :before-upload = "brforeUpload"
+            :before-upload = "beforeUpload"
             accept=".psd"
             :show-file-list="false">
             <slot></slot>

@@ -39,7 +39,7 @@ const actions = {
         if(!state.projectData.pages || !state.projectData.pages.length){
             dispatch('addPage');
         }
-        dispatch('setActionPageUUID', state.projectData.pages[0].uuid)
+        dispatch('setActivePageUUID', state.projectData.pages[0].uuid)
     },
     /**
 	 * 设置当前选中页面uuid
@@ -287,7 +287,7 @@ const mutations = {
     setProjectData(state, data){
         state.projectData = data;
     },
-    setActionPageUUID(state, data){
+    setActivePageUUID(state, data){
         state.activePageUUID = data;
     },
     setActiveElementUUID(state, data){

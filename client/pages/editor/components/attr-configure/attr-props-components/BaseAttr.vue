@@ -1,7 +1,7 @@
 <template>
     <div class="">
         <p class="page-title fontBlod">基础样式</p>
-        <el-collapse v-model="activeNames" @change="handleChange">
+        <el-collapse v-model="activeNames" >
             <el-collapse-item title="尺寸与位置: " name="1">
                 <div class="attr-item-edit-wrapper marginB15">
                     <p class="attr-item-title">快捷定位：</p>
@@ -30,8 +30,8 @@
                     </div>
                 </div>
                 <div class="attr-item-edit-wrapper">
-                    <p class="page-item-title">快捷resize：</p>
-                    <div class="sizeAndPosition-wrappe">
+                    <p class="attr-item-title">快捷resize：</p>
+                    <div class="sizeAndPosition-wrapper">
                         <div class="align-type-item clearFlex" @click="handleResizeClick('wh')">
                             <el-tooltip effect="dark" content="满屏" placement="bottom">
                                 <i class="iconfont inconquanping"></i>
@@ -287,6 +287,7 @@ export default {
     },
     data(){
         return {
+            activeNames: ['1'],
            alignTypeList:[
             {
                 title: '左对齐',

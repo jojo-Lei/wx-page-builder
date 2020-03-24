@@ -1,35 +1,47 @@
 <template>
   <div class="components-page-header">
-      <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
-        <img src="../assets/images/logo.png" alt="">
-        <span>夸克H5</span>
-      </div>
-      <slot></slot>
-      <div class="pull-right">
-        <UserHeaderBar class="marginL30"/>
-      </div>
+    <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
+      <img src="../assets/images/logo.png" alt="">
+      <span>夸克H5</span>
+    </div>
+    <slot></slot>
+    <div class="pull-right">
+      <!-- <userHeaderBar class="marginL30"/> -->
+    </div>
   </div>
 </template>
-<script>
-import UserHeaderBar from './UserHeaderBar';
-console.log(UserHeaderBar);
-export default {
-    name: 'pageHeader',
-    components:{
-      UserHeaderBar,
-    },
-    data(){
-      return {
 
+<script>
+	// import userHeaderBar from './user-header-bar'
+	import { mapState } from "vuex";
+	export default {
+		name: "page-header",
+		components: {
+			// userHeaderBar
+		},
+		data() {
+			return {
+
+			}
+		},
+		computed: {
+			...mapState({
+				userData: state => state.user.userData,
+				token: state => state.user.token,
+			})
+		},
+		methods: {
+			logoutFn() {
+				this.$router.push({name: 'Login'})
+			},
+			goLogin(){
+				this.$mUtils.Cookie.set('beforeLoginUrl',encodeURIComponent(this.$route.fullPath), 1/24/60, window.location.host, window.location.pathname.substring(0, window.location.pathname.length-1)) // 保存用户进入的url
+				this.$router.push({name: 'Login'})
       }
     },
-    methods:{
-
-
-  }
-      
-}
+	}
 </script>
+
 <style lang="scss" scoped>
   .components-page-header {
     height: 48px;
@@ -39,6 +51,7 @@ export default {
     background: rgba(255, 255, 255, 1);
     box-shadow: 0px 1px 4px 0px rgba(195, 195, 195, 0.6);
   }
+
 
   .logo-wrapper {
     font-size: 18px;
@@ -73,4 +86,3 @@ export default {
     margin-top: -5px;
   }
 </style>
-

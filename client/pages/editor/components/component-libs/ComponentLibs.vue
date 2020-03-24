@@ -1,5 +1,5 @@
 <template>
-    <div class="components-libs-wrapper scroller-wrapper">
+    <div class="components-libs-wrapper scrollbar-wrapper">
         <p class="page-title text-center">组件库</p>
         <el-scrollbar style="height:100%">
             <ul class="scrollbar-wrapper">
@@ -23,7 +23,11 @@
     </div>
 </template>
 <script>
+import {camelCase} from 'lodash'
 import eleConfig from '../../ele-config';
+import {_qk_register_components_object} from '@client/plugins/index'
+window._qk_register_components_object=_qk_register_components_object;
+
 export default {
     name: "component-libs",
     data(){
@@ -44,10 +48,22 @@ export default {
 		 * 根据elname获取组件默认props数据
 		 * @param elName
 		 */
-        getComponentProps(elName){
-            let elComponentData
+        getComponentProps(elName) {
+			let elComponentData
+			for (let key in _qk_register_components_object) {
+				if (key.toLowerCase() === camelCase(elName).toLowerCase()) {
+					elComponentData = _qk_register_components_object[key];
+					break;
+				}
+			}
+			if (!elComponentData) return {}
 
-        }
+			let props = {}
+			for (let key in elComponentData.props) {
+				props[key] = [Object, Array].includes(elComponentData.props[key].type) ? elComponentData.props[key].default() : elComponentData.props[key].default
+			}
+			return props;
+		},
     }
 }
 </script>
@@ -86,11 +102,11 @@ export default {
     font-size: 12px;
     cursor: pointer;
     transition: All 0.3s ease-in-out;
-    // &:hover {
-    //   background: #fff;
-    //   border: 1px solid $primary;
-    //   color: $primary;
-    // }
+    &:hover {
+      background: #fff;
+      border: 1px solid $primary;
+      color: $primary;
+    }
     .lib-item-img {
 
     }
