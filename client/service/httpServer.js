@@ -13,13 +13,13 @@ axios.defaults.timeout = 30000; // 超时时间
 
 //请求拦截器
 axios.interceptors.request.use(config => {
-	config.headers.Authorization = store.getters.authorization;
+  config.headers.Authorization = store.getters.authorization;  //发送请求前设置token
   return config
 }, error => {
   return Promise.reject(error)
 });
-//响应拦截器即异常处理
-axios.interceptors.response.use(response => {
+//添加响应拦截器，即异常处理
+axios.interceptors.response.use(response => {  //响应数据
   if (response.data.status) {
     return Promise.resolve(response.data)
   } else {
@@ -29,7 +29,7 @@ axios.interceptors.response.use(response => {
     });
     return Promise.reject(response)
   }
-}, err => {
+}, err => {   //响应错误数据
   if (err && err.response) {
     switch (err.response.status) {
       case 400:

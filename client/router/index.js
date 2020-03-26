@@ -42,10 +42,5 @@ export default new Router({
 				trust: true,
 				noNeedLogin: true
 			}
-		},
-		{
-			path: '/register',
-			name: 'register',
-			component: () => import('@/pages/Register'),
 		}]
 })

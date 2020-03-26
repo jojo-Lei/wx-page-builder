@@ -33,6 +33,7 @@ export default {
             'currentPageIndex',
             'activeElementIndex',
         ])
-    }
+    },
+   
 }
 </script>

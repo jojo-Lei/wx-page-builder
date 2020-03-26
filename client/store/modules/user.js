@@ -12,17 +12,25 @@ const state = {
 };
 
 const actions = {
-    // 更新个人信息
+    /**
+	 * 更新个人信息
+	 * @param commit
+	 */
     updateUserInfo({commit}, userData){
         commit('updateUserInfo', userData);
     },
 
-    // 更新token
+    /**
+	 * 更新token
+	 * @param commit
+	 */
     updateUserToken({commit}, token){
         commit('updateUserToken', token);
     },
 
-    // 退出登录
+    /**
+	 * 退出登录
+	 */
     doLogout(){
 
     }
@@ -54,7 +62,7 @@ const getters = {
 	 * @returns {string}
 	 */
     authorization(state){
-        return state.token ? ('Barer' + state.token) : '';
+        return state.token ? ('Bearer ' + state.token) : '';
     },
 
     /**

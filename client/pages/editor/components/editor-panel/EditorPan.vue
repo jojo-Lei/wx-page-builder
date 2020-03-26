@@ -19,7 +19,7 @@
 
                 <div class="page-wrapper-menu-operation menu-item-on-edit-panel " :style="{transform: 'scale('+(1/scale)+')'}" :class="{active: activeElementUUID}">
                     <el-tooltip v-for="(item, index) in menuOptions" :key="index" 
-                                effect="dark" :content="item.titel" placement="right">
+                                effect="dark" :content="item.title" placement="right">
                         <div class="menu-item menu-item-on-edit-panel" @click="handleElementCommand(item.value)">
                             <i class="menu-item-on-edit-panel" :class="[item.icon]"></i>
                         </div>
@@ -59,7 +59,7 @@ export default {
         ...mapState({
            projectData: state => state.editor.projectData,
            activePageUUID: state => state.editor.activePageUUID,
-           activeElementUUID: state => state.activeElementUUID,
+           activeElementUUID: state => state.editor.activeElementUUID,
         }),
         ...mapGetters([
            'currentPageIndex',

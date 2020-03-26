@@ -1,10 +1,19 @@
 <template>
-    <div>
-        <span>周英豪是头猪</span>
-    </div>
+    <div class="page-data-list">
+        <div></div>
+        <notFundData />
+</div>
 </template>
 <script>
-export default {
-    name: '',
-}
+import notFundData from '@client/components/notFundData'
+	export default {
+		components: {
+			notFundData
+    }
+	}
 </script>
+<style scoped>
+.page-data-list{
+  height: 100%;
+}
+</style>

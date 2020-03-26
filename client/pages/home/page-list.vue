@@ -6,7 +6,7 @@
           <div slot="label"><span class="nav-tabs-label">{{item.label}}</span></div>
         </el-tab-pane>
       </el-tabs>
-    </div>
+    </div> 
     <div class="page-content">
       <div class="my-page-nav-list">
         <div class="my-page-nav-item" @click="doSearch('my')" :class="{active: searchParams.type === 'my'}">我的作品({{myCount}})</div>
@@ -101,8 +101,7 @@
         </el-form>
         <span slot="footer" class="dialog-footer">
           <el-button @click="dialogVisible = false" size="small">取 消</el-button>
-          <!-- <el-button type="primary" @click="submitAddUser" size="small">确 定</el-button> -->
-          <el-button @click="submitAddUser" size="small">确 定</el-button>
+          <el-button type="primary" @click="submitAddUser" size="small">确 定</el-button>
         </span>
       </el-dialog>
     </div>
@@ -124,7 +123,7 @@
 		data() {
 			return {
 				loading: false,
-				// defaultCoverImage: require('@client/common/images/quark--pagecover-image.jpg'),
+				defaultCoverImage: require('@client/common/images/quark--pagecover-image.jpg'),
 				pageList: [],
         myCount: 0,
         shareCount: 0,
@@ -144,11 +143,11 @@
 				}, {
 					name: 'relativePage',
 					label: '排版图文',
-					disabled: false
+					disabled: true
 				}, {
 					value: 'pc',
 					label: 'PC页面',
-					disabled: false
+					disabled: true
 				}],
 				addUserForm: {
 					id: "",
@@ -360,7 +359,7 @@
   .my-page-list {
   }
 
-   .my-page-nav-list {
+  .my-page-nav-list {
     height: 40px;
     line-height: 40px;
     z-index: 2;
@@ -369,13 +368,13 @@
       float: left;
       padding-right: 32px;
       text-align: center;
-      /* cursor: pointer;
+      cursor: pointer;
       &.active {
         color: $primary;
       }
       &:hover {
         color: $primary;
-      } */
+      }
     }
   }
 
@@ -389,14 +388,14 @@
     background: white;
     position: relative;
     transition: all 0.28s;
-    // &:hover {
-    //   box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
-    //   transform: translate3d(0, -2px, 0);
-    //   .header-mask {
-    //     opacity: 1;
-    //   }
+    &:hover {
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
+      transform: translate3d(0, -2px, 0);
+      .header-mask {
+        opacity: 1;
+      }
     }
-  .unpublish {
+    .unpublish {
       position: absolute;
       top: 0;
       left: 0;
@@ -448,7 +447,6 @@
         max-height: 100%;
       }
     }
-
     .page-item-title {
       .item-title-i {
         display: inline-block;
@@ -466,7 +464,6 @@
         float: left;
       }
     }
-
     .page-item-data-pv {
       width: 100%;
       display: flex;
@@ -475,7 +472,7 @@
         text-align: center;
       }
     }
-  
+  }
 
   .page-item:not(:nth-child(4n+1)) {
     margin-left: calc((100% - 224px * 4) / 3);
@@ -494,10 +491,10 @@
       padding-top: 104px;
       transition: all 0.28s;
       cursor: pointer;
-      // &:hover {
-      //   color: $primary;
-      //   border-color: $primary;
-      // }
+      &:hover {
+        color: $primary;
+        border-color: $primary;
+      }
     }
     .null-create {
       display: inline-block;
@@ -507,10 +504,10 @@
       border: 1px solid #e6ebed;
       transition: all 0.28s;
       cursor: pointer;
-      // &:hover {
-      //   color: $primary;
-      //   border-color: $primary;
-      // }
+      &:hover {
+        color: $primary;
+        border-color: $primary;
+      }
     }
   }
 
@@ -528,5 +525,16 @@
   .page-search-wrapper{
     padding: 0;
   }
-
+</style>
+<style lang="scss">
+  .my-page-list{
+    .page-search-wrapper{
+      .el-tabs__header{
+        margin: 0;
+      }
+      .el-tabs__nav-wrap{
+        padding: 0 30px;
+      }
+    }
+  }
 </style>

@@ -6,18 +6,18 @@
     </div>
     <slot></slot>
     <div class="pull-right">
-      <!-- <userHeaderBar class="marginL30"/> -->
+      <userHeaderBar class="marginL30"/>
     </div>
   </div>
 </template>
 
 <script>
-	// import userHeaderBar from './user-header-bar'
+	import userHeaderBar from './UserHeaderBar'
 	import { mapState } from "vuex";
 	export default {
 		name: "page-header",
 		components: {
-			// userHeaderBar
+			userHeaderBar
 		},
 		data() {
 			return {
