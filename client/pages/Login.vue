@@ -4,7 +4,7 @@
 			<i class="iconfont icon-xinxiwanglogo"></i>
 		</div>
 		<div class="login-page-inner">
-			<p class="title">Quark可视化系统</p>
+			<p class="title">微信页面编辑工具</p>
 			<el-form :model="formData" status-icon :rules="type === '注册'?formRulesRegister:formRules" ref="loginForm" label-width="80px" >
 				<el-form-item prop="email" v-if="type=== '注册'" label="邮箱" >
 					<el-input  v-model="formData.email" @keyup.enter.native="doLogin"></el-input>
@@ -210,7 +210,7 @@
       text-align: center;
       font-size: 18px;
       font-weight: bold;
-      color: rgba(65, 186, 120, 1);
+      color: #409EFF;
     }
     /**
     鼠标悬浮渐变
@@ -221,18 +221,18 @@
       margin-top: 20px;
       text-align: center;
       color: white;
-      background: linear-gradient(to right, #5ac66a 0%, #3AA27F 60%, #207b5d 100%);
+      background: linear-gradient(to right, #8CC5FF 0%, #66B1FF 60%, #409EFF 100%);
       transition: all 3s;
       border-radius: 4px;
       cursor: pointer;
     }
     .btn-hover:hover {
       transition: all 3s;
-      background: linear-gradient(to right, #5ac66a 0%, #3AA27F 60%, #207b5d 100%);
+      background: linear-gradient(to right, #8CC5FF 0%, #66B1FF 60%, #409EFF 100%);
     }
     .btn-hover:active {
       transition: all 3s;
-      background: linear-gradient(to right, #5ac66a 0%, #3AA27F 40%, #207b5d 100%);
+      background: linear-gradient(to right, #8CC5FF 0%, #66B1FF 40%, #409EFF 100%);
     }
     .login-page-bottom {
       font-size: 12px;

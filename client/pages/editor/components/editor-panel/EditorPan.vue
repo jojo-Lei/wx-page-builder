@@ -247,8 +247,9 @@ export default {
         line-height: 30px;
       }
       &:hover {
-        background: rgba(37, 165, 137, 0.09);
+        // background: #409EFF;
         // color: $primary;
+        color: white;
         &.i {
           font-weight: bold;
           font-size: 26px;

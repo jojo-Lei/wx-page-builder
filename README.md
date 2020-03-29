@@ -72,7 +72,7 @@ Github: [传送门](https://github.com/huangwei9527/quark-h5)<br/>
 
 ```
 |-- client					--------前端项目界面代码
-    |--common					--------前端界面对应静态资源
+    |--assets					--------前端界面对应静态资源
     |--components				--------组件
     |--config					--------配置文件
     |--eventBus					--------eventBus

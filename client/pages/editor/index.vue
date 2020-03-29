@@ -51,6 +51,14 @@
               </el-tab-pane>
             </el-tabs>
         </div>
+        <!--预览-->
+    <previewPage
+            v-if="showPreview"
+            :pageData="projectData"
+            :pageId="id"
+            @closePreview="showPreview = false"
+            @publishFn="publishFn"
+            @saveFn="saveFn"></previewPage>
     </div>
 </template>
 
@@ -69,18 +77,16 @@ import scriptEdit from './components/attr-configure/ScriptEdit'
 
 import controlBar from './components/ControlBar'
 
-// previewPage
-// import imageLibs from './components/ImageLibs'
+import previewPage from './components/preview'
 
 import {mapState, mapGetters} from 'vuex'
-// import html2canvas from 'html2canvas'
+import html2canvas from 'html2canvas'
 
 export default {
     components: {
       componentLibs,
 		  pageManage,
 		  templateLibs,
-		  // imageLibs,
 		  editorPan,
 		  attrEdit,
 		  animationEdit,
@@ -88,11 +94,12 @@ export default {
 		  pageAttrEdit,
 		  scriptEdit,
 		  controlBar,
-	  	// previewPage
+	  	previewPage
     },
     data(){
         return {
             id: '', // 当前页面id 
+            uuid: '',
             loading: false,
             showPreview: false,
 				    activeAttr: '属性',
@@ -100,18 +107,18 @@ export default {
             sidebarMenus:[
                {
                    label: "组件列表",
-                   value:'',
+                   value:'componentLibs',
                    elementUiIcon: 'el-icon-s-operation'
 
                },{
                    label: "页面管理",
-                   value:'',
+                   value:'pageManage',
                    pageMode: 'h5',
-                   elementUiIcon: 'el-icon-s-document'
+                   elementUiIcon: 'el-icon-document'
                },{
                    label: "模板库",
-                   value:'',
-                   elementUiIcon: 'el-icon-s-files'
+                   value:'templateLibs',
+                   elementUiIcon: 'el-icon-files'
                }
             ],
             canvasConfig: {
@@ -154,7 +161,7 @@ export default {
 			 */
 			async saveFn() {
 				// await this.screenshots()
-				// 提交数据再预览
+				// 提交数据再预览 
 				this.$axios.post('/page/update/' + this.id, this.projectData).then(() => {
 					this.$message.success('保存成功!')
 					this.showPreview = false
@@ -280,7 +287,8 @@ export default {
 <style lang="scss">
   .editor-side-bar {
     .el-tabs__item.is-active {
-      background: rgba(37, 165, 137, 0.09);
+      background: #409EFF;
+      color: white;
     }
   }
   .el-attr-edit-wrapper {

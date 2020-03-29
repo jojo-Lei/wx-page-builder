@@ -21,7 +21,7 @@
 </template>
 
 <script>
-	import runAnimations from '@client/common/js/runAnimations'
+	import runAnimations from '@client/assets/js/runAnimations'
 	import Bus from '@client/eventBus'
 
 	export default {
@@ -212,10 +212,10 @@
   .components-edit-shape {
     cursor: move;
     &.active {
-      outline: 1px dashed #25A589;
+      outline: 1px dashed #409EFF;
     }
     &:hover {
-      outline: 1px dashed #25A589;
+      outline: 1px dashed #409EFF;
     }
   }
 </style>

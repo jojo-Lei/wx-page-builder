@@ -3,9 +3,8 @@
     <div class="page-search-wrapper">
       <el-tabs v-model="searchParams.pageMode" @tab-click="handlePageModeClick">
         <el-tab-pane name="h5"><div slot="label"><span class="nav-tabs-label">H5</span></div></el-tab-pane>
-        <el-tab-pane name="longPage"><div slot="label"><span class="nav-tabs-label">长页H5</span></div></el-tab-pane>
-        <el-tab-pane name="relative"><div slot="label"><span class="nav-tabs-label">排版图文</span></div></el-tab-pane>
         <el-tab-pane name="pc"><div slot="label"><span class="nav-tabs-label">PC页面</span></div></el-tab-pane>
+        <el-tab-pane name="longPage" disabled="true"><div slot="label"><span class="nav-tabs-label">长页H5</span></div></el-tab-pane>
       </el-tabs>
     </div>
     <div class="page-content">
@@ -67,7 +66,7 @@ export default {
     data() {
 			return {
 				loading: false,
-				defaultCoverImage: require('@client/common/images/quark--pagecover-image.jpg'),
+				defaultCoverImage: require('@client/assets/images/pagecover-image.jpg'),
 				pageList: [],
 				previewId: '',
 				showPreview: false,
@@ -173,12 +172,152 @@ export default {
 		}
 }
 </script>
-<style>
-    .nav-tabs-label{
+
+<style lang="scss" scoped>
+  .my-page-list {
+  }
+
+  .page-item {
+    width: 224px;
+    height: 296px;
+    border-radius: 4px;
+    overflow: hidden;
+    float: left;
+    margin-bottom: 24px;
+    background: white;
+    position: relative;
+    transition: all 0.28s;
+    &:hover {
+      box-shadow: 0 0 16px 0 rgba(0, 0, 0, .16);
+      transform: translate3d(0, -2px, 0);
+      .header-mask {
+        opacity: 1;
+      }
+    }
+    .header-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      background-color: rgba(0, 0, 0, .8);
+      width: 224px;
+      height: 224px;
+      border-radius: 4px 4px 0 0;
+      padding-top: 92px;
+      text-align: center;
+      transition: top .28s ease, opacity .28s ease, height .28s ease;
+      .details-btn {
+        display: inline-block;
+        width: 120px;
+        height: 44px;
+        font-size: 18px;
+        line-height: 44px;
+        border-radius: 22px;
+        border: 1px solid #fff;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+    .cover {
+      width: 224px;
+      height: 224px;
+      background-size: cover;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      img {
+        display: inline-block;
+        max-width: 100%;
+        max-height: 100%;
+      }
+    }
+    .page-item-title {
+      .item-title-i {
+        display: inline-block;
+        width: 85%;
+        font-size: 14px;
+        height: 36px;
+        line-height: 36px;
+        color: #111;
+        transition: transform .2s ease;
+        background-color: #fff;
+        padding: 0 8px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        float: left;
+      }
+    }
+    .page-item-data-pv {
+      width: 100%;
+      display: flex;
+      .btn-wrapper {
+        flex: 1;
+        text-align: center;
+      }
+    }
+  }
+
+  .page-item:not(:nth-child(4n+1)) {
+    margin-left: calc((100% - 224px * 4) / 3);
+  }
+
+  .page-item.create {
+    padding: 16px;
+    text-align: center;
+    .temp-create {
+      display: inline-block;
+      width: 192px;
+      height: 204px;
+      border: 1px solid #e6ebed;
+      border-radius: 3px;
+      margin-bottom: 18px;
+      padding-top: 70px;
+      transition: all 0.28s;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+        border-color: $primary;
+      }
+    }
+    .null-create {
+      display: inline-block;
+      width: 192px;
+      height: 42px;
+      line-height: 42px;
+      border: 1px solid #e6ebed;
+      transition: all 0.28s;
+      cursor: pointer;
+      &:hover {
+        color: $primary;
+        border-color: $primary;
+      }
+    }
+  }
+
+  .nav-tabs-label{
     display: inline-block;
     padding: 0 16px;
     height: 60px;
     line-height: 60px;
   }
+  .page-search-wrapper{
+    padding: 0;
+  }
 </style>
+
+<style lang="scss">
+  .my-page-list{
+    .page-search-wrapper{
+      .el-tabs__header{
+        margin: 0;
+      }
+      .el-tabs__nav-wrap{
+        padding: 0 30px;
+      }
+    }
+  }
+</style>
+    
+
 

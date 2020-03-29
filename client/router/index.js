@@ -23,10 +23,6 @@ export default new Router({
 				path: 'page-data',
 				name: 'pageData',
 				component: () => import('@/pages/home/page-data')
-			},{
-				path: 'template-list',
-				name: 'templateList',
-				component: () => import('@/pages/home/template-list')
 			}]
 		},{
 			path: '/editor',

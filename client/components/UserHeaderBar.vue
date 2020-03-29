@@ -2,8 +2,7 @@
     <el-dropdown class="components-user-header cursor-pointer">
         <span class="el-dropdown-link">
         <span class="user-header-image iconfont">
-            <img src="../assets/images/head.png" alt="" v-if="userData.avatar" />
-            <img :src="userData.avatar" alt="" v-else />
+            <img src="https://avatars3.githubusercontent.com/u/32825330" alt=""/>
         </span>
         {{userData.name}}
         <i class="el-icon-arrow-down el-icon--right"></i>

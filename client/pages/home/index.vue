@@ -5,7 +5,6 @@
                 <el-container>
                     <SideBar></SideBar>   
                     <el-container>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
-                        <MainHeaderBar></MainHeaderBar>
                         <el-main>
                             <router-view></router-view>
                         </el-main>
@@ -15,20 +14,12 @@
         <div class="home-side-bar">
             <el-menu default-active="/page-list"  router >
                 <el-menu-item index="/page-list">
-                    <i class="el-icon-mobile"></i>
-                    <span slot="title">我的作品</span>
+                    <i class="el-icon-s-platform"></i>
+                    <span slot="title">项目管理</span>
                 </el-menu-item>
                 <el-menu-item index="/my-template">
-                    <i class="el-icon-document"></i>
-                    <span slot="title">我的模板</span>
-                </el-menu-item>
-                <el-menu-item index="/page-data">
-                    <i class="el-icon-menu"></i>
-                    <span slot="title">我的数据</span>
-                </el-menu-item>
-                <el-menu-item index="/template-list">
                     <i class="el-icon-s-shop"></i>
-                    <span slot="title">创意模板</span>
+                    <span slot="title">模板管理</span>
                 </el-menu-item>
             </el-menu>
         </div>
@@ -45,14 +36,14 @@
   }
 </script>
 
-<<style lang="scss" scoped>
+<style lang="scss" scoped>
   .page-home {
     display: flex;
     width: 100%;
     height: 100%;
     background: rgb(240, 243, 244);
     .home-side-bar{
-      width: 200px;
+      width: 140px;
       background-color: #fff;
       border-right: 1px solid #e6ebed;
       padding-top: 8px;

@@ -51,7 +51,7 @@
 		data() {
 			return {
 				loading: true,
-				defaultCoverImage: require('@client/common/images/quark--pagecover-image.jpg'),
+				defaultCoverImage: require('@client/assets/images/pagecover-image.jpg'),
 				pageData: {}
 			}
 		},

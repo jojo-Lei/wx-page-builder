@@ -1,7 +1,7 @@
 <template>
   <div class="components-default-style">
     <div>
-      <img class="default-style-img" src="../common/images/nodata.png" alt=""  :style="{width: width, height: height}" />
+      <img class="default-style-img" src="../assets/images/nodata.png" alt=""  :style="{width: width, height: height}" />
       <p class="gray">暂无数据</p>
     </div>
   </div>

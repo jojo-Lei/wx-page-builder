@@ -10,9 +10,6 @@
     <div class="page-content">
       <div class="my-page-nav-list">
         <div class="my-page-nav-item" @click="doSearch('my')" :class="{active: searchParams.type === 'my'}">我的作品({{myCount}})</div>
-        <div class="my-page-nav-item" @click="doSearch('share')" :class="{active: searchParams.type === 'share'}">
-          参与作品({{shareCount}})
-        </div>
       </div>
 
       <ul class="page-item-wrapper">
@@ -123,7 +120,7 @@
 		data() {
 			return {
 				loading: false,
-				defaultCoverImage: require('@client/common/images/quark--pagecover-image.jpg'),
+				defaultCoverImage: require('@client/assets/images/pagecover-image.jpg'),
 				pageList: [],
         myCount: 0,
         shareCount: 0,
@@ -136,17 +133,15 @@
           value: 'h5',
           label: 'H5',
           disabled: false
-        }, {
-					value: 'longPage',
-					label: '长页H5',
-					disabled: false
-				}, {
-					name: 'relativePage',
-					label: '排版图文',
-					disabled: true
-				}, {
+        },
+        {
 					value: 'pc',
 					label: 'PC页面',
+					disabled: false
+				},
+         {
+					value: 'longPage',
+					label: '长页H5',
 					disabled: true
 				}],
 				addUserForm: {

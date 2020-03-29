@@ -1,76 +1,72 @@
 <template>
-    <div class="components-page-manage scrollbar-wrapper">
-        <p class="page-title text-ceter">页面管理</p>
-        <el-scrollerbar style="height:100%" class="components-main-content">
-            <div class="page-item clearfix"
-                v-for="(item, index) in projectData.pages "
-                :key = "index"
-                @click="changeActivePage(item)"
-                :class="{active: activePageUUID === item.uuid}">
-                <div class="inline-block">
-                    <span class="page-item-index">{{index + 1}}</span>
-                    第{{index + 1}}页
-                </div>
-                <div class="page-item-btn-wrapper pull-right width20">
-                    <el-dropdown trigger="click">
-                        <span class="el-dropdown-link">
-                            <i class="el-icon-more-outline"></i>
-                        </span>
-                        <el-dropdown-menu slot="dropdown">
-                            <el-dropdown-item>
-                                <div class="btn-item" @click="copyPage(item)"><i icon="el-icon-document-copy">>复制页面</i> </div> 
-                            </el-dropdown-item>
-                            <el-dropdown-item>
-                                <div class="btn-item" @click="addPage(item)"><i icon="el-icon-document-add">>新增页面</i> </div> 
-                            </el-dropdown-item>
-                            <el-dropdown-item>
-                                <div class="btn-item" @click="deletePage(item)"><i icon="el-icon-delete">>删除页面</i> </div> 
-                            </el-dropdown-item>
-                        </el-dropdown-menu>
-                    </el-dropdown>
-                </div>
-            </div>
-        </el-scrollerbar>
-        <div class="bottom-btn-wrapper">
-            <el-button type="primary" size="small" @click="addPage()">新增空页面</el-button>
+  <div class="components-page-manage scrollbar-wrapper">
+    <p class="page-title text-center">页面管理</p>
+    <el-scrollbar style="height: 100%;" class="components-main-conten">
+      <div class="page-item clearfix"
+           v-for="(item, index) in projectData.pages"
+           :key="item.uuid"
+           @click="changeActivePage(item)"
+           :class="{active: activePageUUID === item.uuid}">
+        <div class="inline-block">
+          <span class="page-item-index">{{index + 1}}</span>
+          第{{index + 1}}页
         </div>
+        <div class="page-item-btn-wrapper pull-right width20">
+          <el-dropdown>
+            <span class="el-dropdown-link">
+              <i class="el-icon-more-outline"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>
+                <div class="btn-item" @click="copyPage(item)"><i class="el-icon-document-copy"></i> 复制页面</div>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <div class="btn-item" @click="addPage(item)"><i class="el-icon-document-add"></i> 新增页面</div>
+              </el-dropdown-item>
+              <el-dropdown-item>
+                <div class="btn-item" @click="deletePage(item)"><i class="el-icon-delete"></i> 删除页面</div>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      </div>
+    </el-scrollbar>
+    <div class="bottom-btn-wrapper">
+      <el-button type="primary" size="small"  @click="addPage()">新增空页面</el-button>
     </div>
+  </div>
 </template>
 
 <script>
-import {mapState} from 'vuex';
+	import {mapState} from 'vuex'
 
-export default {
-    data(){
-        return{
-        }
-    },
-    computed:{
-        ...mapState({
-			projectData: state => state.editor.projectData,
-			activePageUUID: state => state.editor.activePageUUID,
-			activeElementUUID: state => state.editor.activeElementUUID
-		})
-    },
-    methods: {
-        /**
-		 * 切换选中页面
-		 * @param item
-		 */
-		changeActivePage(item) {
-			this.$store.dispatch('setActivePageUUID', item.uuid)
+	export default {
+		computed: {
+			...mapState({
+				projectData: state => state.editor.projectData,
+				activePageUUID: state => state.editor.activePageUUID,
+				activeElementUUID: state => state.editor.activeElementUUID
+			})
 		},
-		copyPage(item) {
-			this.$store.dispatch('copyPage', item.uuid)
-		},
-		addPage(item) {
-			this.$store.dispatch('addPage', item ? item.uuid : '')
-		},
-		deletePage(item) {
-			this.$store.dispatch('deletePage', item.uuid)
+		methods: {
+			/**
+			 * 切换选中页面
+			 * @param item
+			 */
+			changeActivePage(item) {
+				this.$store.dispatch('setActivePageUUID', item.uuid)
+			},
+			copyPage(item) {
+				this.$store.dispatch('copyPage', item.uuid)
+			},
+			addPage(item) {
+				this.$store.dispatch('addPage', item ? item.uuid : '')
+			},
+			deletePage(item) {
+				this.$store.dispatch('deletePage', item.uuid)
+			}
 		}
-    }
-}
+	}
 </script>
 
 <style lang="scss" scoped>
@@ -117,7 +113,7 @@ export default {
       background-color: #eee;
       color: #111;
       .page-item-index{
-        // background: $primary;
+        background: $primary;
         color: white;
       }
     }
@@ -138,10 +134,10 @@ export default {
         padding: 4px 4px;
         font-size: 18px;
         transition: all 0.28s;
-        // &:hover {
-        //   color: $primary;
-        //   transform: scale(1.05);
-        // }
+        &:hover {
+          color: $primary;
+          transform: scale(1.05);
+        }
       }
     }
   }

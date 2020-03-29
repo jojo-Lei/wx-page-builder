@@ -7,7 +7,7 @@
                     <p class="attr-item-title">快捷定位：</p>
                     <div class="sizeAndPosition-wrapper">
                         <div class="align-type-item" v-for="item in alignTypeList" 
-                            :key="item.type" @click="changeAlignType(item)">
+                            :key="item.type" @click="changeAlignType(item.type)">
                             <el-tooltip effect="dark" :content="item.title" placement="bottom">
                                 <i :class="[item.icon]" ></i>
                             </el-tooltip>
@@ -34,7 +34,7 @@
                     <div class="sizeAndPosition-wrapper">
                         <div class="align-type-item clearFlex" @click="handleResizeClick('wh')">
                             <el-tooltip effect="dark" content="满屏" placement="bottom">
-                                <i class="iconfont inconquanping"></i>
+                                <i class="iconfont iconquanping"></i>
                             </el-tooltip>
                         </div>
                         <div class="align-type-item clearFlex" @click="handleResizeClick('w')">
@@ -44,7 +44,7 @@
                         </div>
                          <div class="align-type-item clearFlex" @click="handleResizeClick('h')">
                             <el-tooltip effect="dark" content="高度100%" placement="bottom">
-                                <i class="iconfont iconcolumn-height"></i>
+                                <i class="iconfont iconcolum-height"></i>
                             </el-tooltip>
                         </div>
                     </div>

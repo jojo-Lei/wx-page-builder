@@ -2,15 +2,15 @@
   <div class="components-page-header">
     <div class="logo-wrapper cursor-pointer" @click="$router.push('/')">
       <img src="../assets/images/logo.png" alt="">
-      <span>夸克H5</span>
+      <span>微信活动页编辑工具</span>
     </div>
     <slot></slot>
-    <div class="pull-right">
+    <div class="pull-right"> 
       <userHeaderBar class="marginL30"/>
     </div>
   </div>
 </template>
-
+ 
 <script>
 	import userHeaderBar from './UserHeaderBar'
 	import { mapState } from "vuex";
@@ -62,7 +62,7 @@
     img {
       position: relative;
       top: 6px;
-      width: 26px;
+      width: 28px;
       height: 28px;
       display: inline-block;
       margin-right: 8px;

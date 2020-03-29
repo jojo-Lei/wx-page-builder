@@ -243,7 +243,7 @@ export default {
         width: 40px;
         height: 40px;
         margin-bottom: 6px;
-        background-image: url(../../../../common/images/use-beb469.png)
+        background-image: url(../../../../assets/images/use-beb469.png)
       }
       p {
         font-size: 12px;

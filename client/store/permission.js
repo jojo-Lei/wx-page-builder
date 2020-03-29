@@ -4,7 +4,7 @@
 import router from '@/router'
 import NProgress from 'nprogress' // 进度条
 import 'nprogress/nprogress.css' // 进度条样式
-import * as mUtils from '@client/common/js/mUtils'
+import * as mUtils from '@client/assets/js/mUtils'
 import store from '@client/store'
 
 router.beforeEach((to, from, next) => {

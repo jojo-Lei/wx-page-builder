@@ -6,7 +6,7 @@
 
 <script>
 	import {_qk_register_components_object} from '@client/plugins/index'
-	import runAnimations from '@client/common/js/runAnimations'
+	import runAnimations from '@client/assets/js/runAnimations'
 	import elementEvents from '@client/mixins/elementEvents'
 
 	export default {

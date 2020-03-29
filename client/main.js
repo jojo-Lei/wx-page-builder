@@ -4,10 +4,10 @@ import router from './router'
 import store from './store'
 import httpServer from '@client/service/httpServer' // axios拦截器配置
 import '@client/store/permission' // 权限控制
-import * as mUtils from '@/common/js/mUtils'
+import * as mUtils from '@/assets/js/mUtils'
 import config from '@/config'
 import filters from './filters/index'
-import AES from '@/common/js/secret'
+import AES from '@/assets/js/secret'
 import userModel from '@client/mixins/userModel'
 
 import Element from 'element-ui'
