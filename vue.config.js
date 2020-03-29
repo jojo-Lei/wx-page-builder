@@ -36,6 +36,7 @@ module.exports = {
 			}
 		}
 	},
+	publicPath: process.env.NODE_ENV === "production" ? "/wx-page-builder" : "/",
 	productionSourceMap: process.env.NODE_ENV !== 'production',
 	configureWebpack: config => {
 		if (process.env.NODE_ENV === 'production') {
