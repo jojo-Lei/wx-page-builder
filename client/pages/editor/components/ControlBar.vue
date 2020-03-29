@@ -24,12 +24,12 @@
       <i class="iconfont iconyulan"></i>
       <p>预览</p>
     </div>
-    <UploadPsd @upload-success="uploadSuccessPsd">
+    <!--<UploadPsd @upload-success="uploadSuccessPsd">
       <div class="button-item">
         <i class="iconfont iconps"></i>
         <p>导入psd</p>
       </div>
-    </UploadPsd>
+    </UploadPsd>-->
     <div class="button-item" @click="save">
       <i class="iconfont iconbaocun"></i>
       <p>保存</p>
@@ -47,10 +47,10 @@
 
 <script>
 	import {mapGetters, mapActions} from 'vuex'
-	import UploadPsd from '@client/components/UploadPsd'
+	// import UploadPsd from '@client/components/UploadPsd'
 	export default {
 		components: {
-			UploadPsd
+			// UploadPsd
     },
 		props: {
 			// 是否loading
